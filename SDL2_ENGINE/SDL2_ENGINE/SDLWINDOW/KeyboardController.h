@@ -8,7 +8,11 @@
 class KeyboardController : public Component
 {
 public:
-	KeyboardController() = default;
+	KeyboardController()
+		: transform{ nullptr }
+		, sprite{ nullptr }
+	{
+	}
 
 	TransformComponent* transform;
 	SpriteComponent* sprite;
