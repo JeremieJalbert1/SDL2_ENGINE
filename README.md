@@ -20,12 +20,6 @@ Please ensure these libraries are installed before trying to build and run the p
 
 Clone the repository with `git clone https://github.com/JeremieJalbert1/SDL2_ENGINE`. Navigate into the directory and build the project using your chosen C++ compiler.
 
-```bash
-cd your-project-directory
-make
-./your-executable-name
-```
-
 ## Features
 
 The SDL2 game engine currently supports:
