@@ -14,9 +14,29 @@ Please ensure these libraries are installed before trying to build and run the p
 
 ## Build and Run
 
-Clone the repository with `git clone [url]`. Navigate into the directory and build the project using your chosen C++ compiler.
+Clone the repository with `git clone https://github.com/JeremieJalbert1/SDL2_ENGINE`. Navigate into the directory and build the project using your chosen C++ compiler.
 
 ```bash
 cd your-project-directory
 make
 ./your-executable-name
+
+## Features
+
+The SDL2 game engine currently supports:
+
+- Basic 2D rendering
+- Texture loading and rendering
+- Basic entity-component system (ECS)
+- Basic collision detection
+- Simple user input handling
+
+## Example Usage
+
+```cpp
+// Create an entity
+Entity& newEntity = entityManager.addEntity();
+
+// Add components to the entity
+newEntity.addComponent<TransformComponent>(x_position, y_position, width, height, scale);
+newEntity.addComponent<SpriteComponent>("path-to-texture");
