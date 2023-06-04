@@ -77,6 +77,7 @@ void Game::update()
 
 	if (Collision::AABB(newPlayer.component<ColliderComponent>().collider, wall.component<ColliderComponent>().collider))
 	{
+		newPlayer.component<TransformComponent>().velocity * -1;
 		std::cout << "Wall Hit!\n";
 	}
 }
