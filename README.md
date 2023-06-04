@@ -1,6 +1,6 @@
 # SDL2 Game Engine - Tycoon Game Development
 
-This project is a dedicated 2D game engine built with SDL2, designed with the specific goal of developing engaging and intricate tycoon-style management games. Inspired by and building upon the knowledge gained from the YouTube tutorial series[('How To Make Games')](https://www.youtube.com/@CarlBirch), this engine seeks to provide a solid foundation for the creation of detailed simulation and management games.
+This project is a dedicated 2D game engine built with SDL2, designed with the specific goal of developing engaging and intricate tycoon-style management games. Inspired by and building upon the knowledge gained from the YouTube tutorial series ['How To Make Games'](https://www.youtube.com/@CarlBirch), this engine seeks to provide a solid foundation for the creation of detailed simulation and management games.
 
 From the simplicity of resource allocation to the complexity of AI-driven systems, this game engine aims to provide a comprehensive set of features that are commonly found in popular tycoon games. By focusing on providing a highly customizable entity-component system, the engine ensures the flexibility and scalability needed to handle the diverse requirements of a management game.
 
