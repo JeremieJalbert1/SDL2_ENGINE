@@ -35,6 +35,18 @@ The SDL2 game engine currently supports:
 - Basic entity-component system (ECS)
 - Basic collision detection
 - Simple user input handling
+- Resource management system
+
+
+## Future Features
+- AI-driven characters (NPCs) with basic decision-making capabilities
+- Grid-based or free placement system for building construction and management
+- Basic economic system with supply, demand, and variable pricing
+- Time progression and event scheduling system
+- Pathfinding and navigation for AI entities
+- Save and load game state system
+- UI system for displaying information and player interaction
+- Basic audio system for sound effects and music
 
 ## Example Usage
 
