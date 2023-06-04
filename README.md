@@ -1,6 +1,6 @@
 # SDL2 Game Engine
 
-This project is a simple 2D game engine built with SDL2, inspired by and following the YouTube tutorial series 'How To Make Games' (insert link to the series here).
+This project is a simple 2D game engine built with SDL2, inspired by and following the YouTube tutorial series 'How To Make Games' [(insert link to the series here)](https://www.youtube.com/@CarlBirch).
 
 ## Prerequisites
 
@@ -20,6 +20,7 @@ Clone the repository with `git clone https://github.com/JeremieJalbert1/SDL2_ENG
 cd your-project-directory
 make
 ./your-executable-name
+```
 
 ## Features
 
@@ -40,3 +41,17 @@ Entity& newEntity = entityManager.addEntity();
 // Add components to the entity
 newEntity.addComponent<TransformComponent>(x_position, y_position, width, height, scale);
 newEntity.addComponent<SpriteComponent>("path-to-texture");
+```
+This will create an entity, give it a position, size, and scale via the `TransformComponent`, and then give it a sprite via the `SpriteComponent`.
+
+## Contribution
+
+This project is currently in development. Contributions are welcome! Please submit a pull request or open an issue if you want to make changes or find a bug.
+
+## License
+
+This project is open source, under the MIT license.
+
+## Acknowledgements
+
+- Thanks to the creator of the 'How To Make Games' YouTube tutorial series for the knowledge and inspiration to start this project.
