@@ -14,13 +14,13 @@ class Entity;
 
 using ComponentID = std::size_t;
 
-ComponentID componentID()
+inline ComponentID componentID()
 {
 	static ComponentID lastID = 0;
 	return lastID++;
 }
 
-template <typename T> ComponentID componentTypeID() noexcept
+template <typename T> inline ComponentID componentTypeID() noexcept
 {
 	static ComponentID typeID = componentID();
 	return typeID;

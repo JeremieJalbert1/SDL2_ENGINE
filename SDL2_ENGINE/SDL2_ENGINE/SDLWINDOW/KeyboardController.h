@@ -3,7 +3,8 @@
 #define KEYBOARDCONTROLLER_H
 
 #include "Game.h"
-#include "Components.h"
+#include "TransformComponent.h"
+#include "SpriteComponent.h"
 
 class KeyboardController : public Component
 {

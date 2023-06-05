@@ -9,11 +9,16 @@ TileMap* map;
 
 SDL_Renderer* Game::renderer = nullptr;
 SDL_Event Game::event;
+CollidersVector Game::colliders;
 bool Game::isRunning = false;
 
 Manager manager;
 auto& newPlayer(manager.addEntity());
 auto& wall(manager.addEntity());
+
+auto& tile0(manager.addEntity());
+auto& tile1(manager.addEntity());
+auto& tile2(manager.addEntity());
 
 Game::Game()
 	: window(nullptr)
@@ -45,8 +50,6 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = true;
 	}
 
-	map = new TileMap();
-
 	newPlayer.addComponent<TransformComponent>(Vect2D(196, 196), 3, 196, 196, 1);
 	newPlayer.addComponent<SpriteComponent>("Img/Person.png");
 	newPlayer.addComponent<KeyboardController>();
@@ -55,6 +58,13 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	wall.addComponent<TransformComponent>(Vect2D(55, 122), 300, 20, 1);
 	wall.addComponent<SpriteComponent>("Img/Wall.png");
 	wall.addComponent<ColliderComponent>("wall");
+
+	tile0.addComponent<TileComponent>(200, 200, 32, 32, 0);
+	tile1.addComponent<TileComponent>(250, 250, 32, 32, 1);
+	tile1.addComponent<ColliderComponent>("dirt");
+
+	tile2.addComponent<TileComponent>(300, 300,  32, 32, 2);
+	tile2.addComponent<ColliderComponent>("grass");
 }
 
 void Game::handleEvents()
@@ -74,18 +84,16 @@ void Game::update()
 {
 	manager.refresh();
 	manager.update();
-
-	if (Collision::AABB(newPlayer.component<ColliderComponent>().collider, wall.component<ColliderComponent>().collider))
+	
+	for(auto cc : colliders)
 	{
-		newPlayer.component<TransformComponent>().velocity * -1;
-		std::cout << "Wall Hit!\n";
+		Collision::AABB(newPlayer.component<ColliderComponent>(), *cc);
 	}
 }
 
 void Game::render()
 {
 	SDL_RenderClear(renderer);
-	map->drawMap();
 	manager.draw();
 	SDL_RenderPresent(renderer);
 }

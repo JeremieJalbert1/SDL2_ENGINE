@@ -2,7 +2,8 @@
 #ifndef TRANSFORMCOMPONENT_H
 #define TRANSFORMCOMPONENT_H
 
-#include "Components.h"
+#include "ECS.h"
+#include "Vect2D.h"
 
 class TransformComponent : public Component
 {
@@ -46,7 +47,17 @@ public:
 		, speed{ speed }
 		, height{ height }
 		, width{ width }
-		, scale{ 1 }
+		, scale{ scale }
+	{
+	}
+
+	TransformComponent(float x, float y, int height, int width, int scale)
+		: position{ Vect2D(x, y) }
+		, velocity{ Vect2D() }
+		, speed{}
+		, height{ height }
+		, width{ width }
+		, scale{ scale }
 	{
 	}
 
