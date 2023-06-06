@@ -1,9 +1,10 @@
 #include <iostream>
 #include "Game.h"
 #include "TextureManager.h"
-#include "tileMap.h"
+#include "TileMap.h"
 #include "Components.h"
 #include "Collision.h"
+#include "Map.h"
 
 TileMap* map;
 
@@ -15,10 +16,6 @@ bool Game::isRunning = false;
 Manager manager;
 auto& newPlayer(manager.addEntity());
 auto& wall(manager.addEntity());
-
-auto& tile0(manager.addEntity());
-auto& tile1(manager.addEntity());
-auto& tile2(manager.addEntity());
 
 Game::Game()
 	: window(nullptr)
@@ -50,6 +47,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = true;
 	}
 
+	Map::LoadMap("Img/map.txt", 16, 16);
+
 	newPlayer.addComponent<TransformComponent>(Vect2D(196, 196), 3, 196, 196, 1);
 	newPlayer.addComponent<SpriteComponent>("Img/Person.png");
 	newPlayer.addComponent<KeyboardController>();
@@ -58,13 +57,6 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	wall.addComponent<TransformComponent>(Vect2D(55, 122), 300, 20, 1);
 	wall.addComponent<SpriteComponent>("Img/Wall.png");
 	wall.addComponent<ColliderComponent>("wall");
-
-	tile0.addComponent<TileComponent>(200, 200, 32, 32, 0);
-	tile1.addComponent<TileComponent>(250, 250, 32, 32, 1);
-	tile1.addComponent<ColliderComponent>("dirt");
-
-	tile2.addComponent<TileComponent>(300, 300,  32, 32, 2);
-	tile2.addComponent<ColliderComponent>("grass");
 }
 
 void Game::handleEvents()
@@ -104,4 +96,10 @@ void Game::clean()
 	SDL_DestroyRenderer(renderer);
 	SDL_Quit();
 	std::cout << "Game Cleaned!...\n";
+}
+
+void Game::AddTile(int id, int x, int y)
+{
+	auto& tile(manager.addEntity());
+	tile.addComponent<TileComponent>(x, y, 32, 32, id);
 }
