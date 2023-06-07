@@ -1,3 +1,7 @@
-﻿  Map.cpp
-E:\DEV_SDL2\SDL2_ENGINE\SDL2_ENGINE\SDL2_ENGINE\SDLWINDOW\Map.cpp(41,53): warning C4101: 'e': unreferenced local variable
-  SDLWINDOW.vcxproj -> E:\DEV_SDL2\SDL2_ENGINE\SDL2_ENGINE\SDL2_ENGINE\x64\Debug\SDLWINDOW.exe
+﻿  Game.cpp
+C:\Dev\SDL2_ENGINE\SDL2_ENGINE\SDL2_ENGINE\SDLWINDOW\Game.cpp(95,47): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\SDL2_ENGINE\SDL2_ENGINE\SDL2_ENGINE\SDLWINDOW\Game.cpp(96,47): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  Map.cpp
+C:\Dev\SDL2_ENGINE\SDL2_ENGINE\SDL2_ENGINE\SDLWINDOW\Map.cpp(52,53): warning C4101: 'e': unreferenced local variable
+  Generating Code...
+  SDLWINDOW.vcxproj -> C:\Dev\SDL2_ENGINE\SDL2_ENGINE\SDL2_ENGINE\x64\Debug\SDLWINDOW.exe

@@ -38,7 +38,8 @@ public:
 		, width{}
 		, scale{ scale }
 	{
-
+		position.x = 400;
+		position.y = 320;
 	}
 
 	TransformComponent(Vect2D position, int speed, int height, int width, int scale)
@@ -64,8 +65,6 @@ public:
 
 	void update() override
 	{
-		position.x += velocity.x * speed;
-		position.y += velocity.y * speed;
 	}
 
 	Vect2D position;

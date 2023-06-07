@@ -1,0 +1,2 @@
+1. Animation generique (Harcoder pour le moment)
+2. Classe AnimatorController (Change anim dans Keyboard en ce moment, spritComponent possede les fonctions animation)

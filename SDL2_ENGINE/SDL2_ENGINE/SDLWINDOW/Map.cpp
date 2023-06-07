@@ -25,6 +25,7 @@ void Map::LoadMap(std::string path, int sizeX, int sizeY)
 		{
 			std::stringstream ss(line);
 			std::string tileStr;
+            int srcX, srcY;
 
             for (int x = 0; x < sizeX; ++x)
             {
@@ -36,7 +37,17 @@ void Map::LoadMap(std::string path, int sizeX, int sizeY)
                 try
                 {
                     int tile = std::stoi(tileStr);
-                    Game::AddTile(tile, x * 32, y * 32);
+                    if (tile > 9)
+                    {
+                        srcX = tile % 10 * 32;
+                        srcY = tile / 10 * 32;
+                    }
+                    else
+                    {
+						srcX = tile * 32;
+                        srcY = 0;
+					}
+                    Game::AddTile(srcX, srcY, x * 64, y * 64);
                 }
                 catch (const std::invalid_argument& e)
                 {
