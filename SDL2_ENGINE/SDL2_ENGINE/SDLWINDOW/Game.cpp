@@ -12,6 +12,7 @@ SDL_Renderer* Game::renderer = nullptr;
 SDL_Event Game::event;
 CollidersVector Game::colliders;
 bool Game::isRunning = false;
+SDL_Rect Game::camera = { 0, 0, 800, 640 };
 
 Manager manager;
 Entity& newPlayer(manager.addEntity());
@@ -62,7 +63,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
 	Map::LoadMap("Img/map.map", 25, 20);
 
-	newPlayer.addComponent<TransformComponent>(Vect2D(196, 196), 3, 32, 32, 1);
+	newPlayer.addComponent<TransformComponent>(Vect2D(196, 196), 3, 32, 32, 2);
 	newPlayer.addComponent<SpriteComponent>("Img/player_anims.png", true);
 	newPlayer.addComponent<KeyboardController>();
 	newPlayer.addComponent<ColliderComponent>("player");
@@ -87,14 +88,15 @@ void Game::update()
 	manager.refresh();
 	manager.update();
 
-	Vect2D pVelocity = newPlayer.component<TransformComponent>().velocity;
-	int pSpeed = newPlayer.component<TransformComponent>().speed;
+	// Change - 400 to size of map
+	camera.x = newPlayer.component<TransformComponent>().position.x - 400;
+	// Same with y
+	camera.y = newPlayer.component<TransformComponent>().position.y - 320;
 
-	for (auto t : tiles)
-	{
-		t->component<TileComponent>().destRect.x += -(pVelocity.x * pSpeed);
-		t->component<TileComponent>().destRect.y += -(pVelocity.y * pSpeed);
-	}
+	if (camera.x < 0) camera.x = 0;
+	if (camera.y < 0) camera.y = 0;
+	if (camera.x > camera.w) camera.x = camera.w;
+	if (camera.y > camera.h) camera.y = camera.h;
 }
 
 void Game::render()

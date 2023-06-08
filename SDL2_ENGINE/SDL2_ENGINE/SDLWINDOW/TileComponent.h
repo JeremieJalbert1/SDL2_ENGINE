@@ -15,6 +15,7 @@ public:
 		: texture{ TextureManager::LoadTexture(path)}
 		, srcRect{ SDL_Rect() }
 		, destRect{ SDL_Rect() }
+		, position{ Vect2D(x, y) }
 	{
 		srcRect.x = srcX;
 		srcRect.y = srcY;
@@ -30,6 +31,12 @@ public:
 		SDL_DestroyTexture(texture);
 	}
 
+	void update() override
+	{
+		destRect.x = position.x - Game::camera.x;
+		destRect.y = position.y - Game::camera.y;
+	}
+
 	void draw() override
 	{
 		TextureManager::Draw(texture, srcRect, destRect, SDL_FLIP_NONE);
@@ -37,6 +44,7 @@ public:
 
 	SDL_Texture* texture;
 	SDL_Rect srcRect, destRect;
+	Vect2D position;
 
 };
 

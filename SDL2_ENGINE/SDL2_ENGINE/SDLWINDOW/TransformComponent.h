@@ -65,10 +65,13 @@ public:
 
 	void update() override
 	{
+		position.x += velocity.x * speed;
+		position.y += velocity.y * speed;
 	}
 
 	Vect2D position;
 	Vect2D velocity;
+
 
 	int speed;
 	int height;
